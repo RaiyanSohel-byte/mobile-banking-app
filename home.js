@@ -7,36 +7,45 @@ const cashoutSection = document.getElementById("cashout-section");
 addMoney.addEventListener("click", () => {
   addMoneySection.classList.remove("hidden");
   cashoutSection.classList.add("hidden");
-  cashout.classList.add("border-[#e7e7e7]");
+
   cashout.classList.remove(
     "bg-[#f2f8fe]",
     "text-[#0874F2]",
-    "border",
+
     "border-[#0874f2]"
   );
+  cashout.classList.add("border", "border-[#e7e7e7]");
   addMoney.classList.remove("border-[#e7e7e7]");
   addMoney.classList.add(
+    "border",
     "bg-[#f2f8fe]",
     "text-[#0874F2]",
-    "border",
+
     "border-[#0874f2]"
   );
 });
 cashout.addEventListener("click", () => {
   cashoutSection.classList.remove("hidden");
   addMoneySection.classList.add("hidden");
-  addMoney.classList.add("border-[#e7e7e7]");
+
   addMoney.classList.remove(
     "bg-[#f2f8fe]",
     "text-[#0874F2]",
-    "border",
+
     "border-[#0874f2]"
   );
+
+  addMoney.classList.remove(
+    "bg-[#f2f8fe]",
+    "text-[#0874F2]",
+    "border-[#0874f2]"
+  );
+  addMoney.classList.add("border", "border-[#e7e7e7]");
   cashout.classList.remove("border-[#e7e7e7]");
   cashout.classList.add(
     "bg-[#f2f8fe]",
     "text-[#0874F2]",
-    "border",
+
     "border-[#0874f2]"
   );
 });
