@@ -17,21 +17,23 @@
   <body
     class="outfit bg-[#f4f5f7] h-[100vh] flex flex-col justify-center items-center"
   >
+    <div id="alert" class="mt-0 mb-[20px]"></div>
     <div
       class="flex justify-center items-center w-[300px] h-[130px] bg-[url('/assets/bg.png')] bg-cover"
     >
       <img src="assets/Group.png" alt="" />
     </div>
-    <form class="bg-white rounded-xl p-[32px]" action="">
+    <form class="w-[350px] bg-white rounded-xl p-[32px]" action="">
       <div class="mb-[16px]">
         <label class="mb-[12px] text-[1rem] font-semibold" for=""
           >Mobile Number</label
         >
         <br />
         <input
+          id="number-input"
           type="number"
           placeholder="Enter your number"
-          class="input bg-[#f4f5f7] mt-[16px] w-[338px] rounded-[32px] border-none"
+          class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none"
         />
       </div>
       <div>
@@ -40,9 +42,10 @@
         >
         <br />
         <input
+          id="pin-input"
           type="password"
           placeholder="Enter Your 4 Digit Pin"
-          class="input bg-[#f4f5f7] mt-[16px] w-[338px] rounded-[32px] border-none"
+          class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none"
         />
       </div>
       <button
