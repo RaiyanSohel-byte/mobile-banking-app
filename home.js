@@ -1,6 +1,6 @@
 // console.log("worked");
 const addMoneyButton = document.getElementById("add-money-btn");
-
+const pin = "1234";
 addMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(document.getElementById("balance").innerText);
@@ -13,7 +13,8 @@ addMoneyButton.addEventListener("click", (event) => {
     !isNaN(amountInput) &&
     bankInput.length === 11 &&
     pinInput.length === 4 &&
-    bank !== "Select Bank"
+    bank !== "Select Bank" &&
+    pinInput === pin
   ) {
     document.getElementById("balance").innerText = `${amountInput + balance}`;
     document.getElementById(
