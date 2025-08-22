@@ -1,4 +1,47 @@
-// console.log("worked");
+const addMoney = document.getElementById("add-money");
+const cashout = document.getElementById("cashout");
+const addMoneySection = document.getElementById("add-money-section");
+const cashoutSection = document.getElementById("cashout-section");
+
+//toggle
+addMoney.addEventListener("click", () => {
+  addMoneySection.classList.remove("hidden");
+  cashoutSection.classList.add("hidden");
+  cashout.classList.add("border-[#e7e7e7]");
+  cashout.classList.remove(
+    "bg-[#f2f8fe]",
+    "text-[#0874F2]",
+    "border",
+    "border-[#0874f2]"
+  );
+  addMoney.classList.remove("border-[#e7e7e7]");
+  addMoney.classList.add(
+    "bg-[#f2f8fe]",
+    "text-[#0874F2]",
+    "border",
+    "border-[#0874f2]"
+  );
+});
+cashout.addEventListener("click", () => {
+  cashoutSection.classList.remove("hidden");
+  addMoneySection.classList.add("hidden");
+  addMoney.classList.add("border-[#e7e7e7]");
+  addMoney.classList.remove(
+    "bg-[#f2f8fe]",
+    "text-[#0874F2]",
+    "border",
+    "border-[#0874f2]"
+  );
+  cashout.classList.remove("border-[#e7e7e7]");
+  cashout.classList.add(
+    "bg-[#f2f8fe]",
+    "text-[#0874F2]",
+    "border",
+    "border-[#0874f2]"
+  );
+});
+
+// add money
 const addMoneyButton = document.getElementById("add-money-btn");
 const pin = "1234";
 addMoneyButton.addEventListener("click", (event) => {
