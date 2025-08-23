@@ -1,19 +1,37 @@
 const addMoney = document.getElementById("add-money");
-const cashout = document.getElementById("cashout");
 const addMoneySection = document.getElementById("add-money-section");
+
+const cashout = document.getElementById("cashout");
 const cashoutSection = document.getElementById("cashout-section");
+
 const transferMoney = document.getElementById("transfer-money");
 const transferMoneySection = document.getElementById("transfer-money-section");
+
 const getBonus = document.getElementById("get-bonus");
 const getBonusSection = document.getElementById("get-bonus-section");
+
 const payBill = document.getElementById("pay-bill");
 const payBillSection = document.getElementById("pay-bill-section");
+
 const transaction = document.getElementById("transaction");
 const transactionSection = document.getElementById("transaction-section");
+
+//buttons
+const addMoneyButton = document.getElementById("add-money-btn");
+const withdrawMoneyButton = document.getElementById("withdraw-money-btn");
+const transferMoneyButton = document.getElementById("transfer-money-btn");
+const payBillButton = document.getElementById("pay-bill-btn");
+const logoutButton = document.getElementById("logout-btn");
+
+const pin = "1234";
+
+const transactionData = [];
+
 //get value function
 function getValue(id) {
   return parseInt(document.getElementById(id).value);
 }
+
 // get inner text function
 function getInnerText(id) {
   return document.getElementById(id).innerText;
@@ -27,7 +45,7 @@ function toggleSection(activeButton, activeSection) {
   transferMoneySection.classList.add("hidden");
   getBonusSection.classList.add("hidden");
   payBillSection.classList.add("hidden");
-
+  transactionSection.classList.add("hidden");
   // show active section
   activeSection.classList.remove("hidden");
 
@@ -69,8 +87,6 @@ transaction.addEventListener("click", () =>
 );
 
 // add money
-const addMoneyButton = document.getElementById("add-money-btn");
-const pin = "1234";
 addMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(getInnerText("balance"));
@@ -98,6 +114,13 @@ addMoneyButton.addEventListener("click", (event) => {
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
     }, 1000);
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleString(),
+    };
+    transactionData.push(data);
+    transactionHistory();
+    console.log(transactionData);
   } else {
     document.getElementById(
       "popup"
@@ -114,7 +137,6 @@ addMoneyButton.addEventListener("click", (event) => {
 });
 
 // cashout
-const withdrawMoneyButton = document.getElementById("withdraw-money-btn");
 
 withdrawMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -145,6 +167,13 @@ withdrawMoneyButton.addEventListener("click", (event) => {
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
     }, 1000);
+    const data = {
+      name: "Cash Out",
+      date: new Date().toLocaleString(),
+    };
+    transactionData.push(data);
+    transactionHistory();
+    console.log(transactionData);
   } else if (amntInput > balance) {
     document.getElementById(
       "popup"
@@ -173,7 +202,6 @@ withdrawMoneyButton.addEventListener("click", (event) => {
 });
 
 //transfer money
-const transferMoneyButton = document.getElementById("transfer-money-btn");
 
 transferMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -204,6 +232,13 @@ transferMoneyButton.addEventListener("click", (event) => {
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
     }, 1000);
+    const data = {
+      name: "Transfer Money",
+      date: new Date().toLocaleString(),
+    };
+    transactionData.push(data);
+    transactionHistory();
+    console.log(transactionData);
   } else if (amntInput > balance) {
     document.getElementById(
       "popup"
@@ -232,7 +267,6 @@ transferMoneyButton.addEventListener("click", (event) => {
 });
 
 //pay bill
-const payBillButton = document.getElementById("pay-bill-btn");
 
 payBillButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -263,6 +297,13 @@ payBillButton.addEventListener("click", (event) => {
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
     }, 1000);
+    const data = {
+      name: "Pay Bill",
+      date: new Date().toLocaleString(),
+    };
+    transactionData.push(data);
+    transactionHistory();
+    console.log(transactionData);
   } else {
     document.getElementById(
       "popup"
@@ -278,8 +319,40 @@ payBillButton.addEventListener("click", (event) => {
   }
 });
 
+//transaction history
+function transactionHistory() {
+  const container = document.getElementById("transaction-section");
+
+  // Clear previous content first
+  container.innerHTML = `
+    <div class="flex justify-between items-center mb-[16px]">
+      <h1 class="font-semibold text-[18px]">Transaction History</h1>
+      <p class="text-[14px] font-normal text-[#7e7f80] hover:cursor-pointer">View All</p>
+    </div>
+  `;
+
+  // Add all transactions
+  transactionData.forEach((element) => {
+    container.innerHTML += `
+      <div class="bg-white flex justify-between items-center gap-[8px] px-[16px] py-[13px] mb-[8px]">
+        <div class="flex items-center gap-[8px]">
+          <div class="bg-[#f2f2f2] w-[45px] h-[45px] rounded-[50%] flex items-center justify-center">
+            <img src="assets/purse1.png" alt="" />
+          </div>
+          <div>
+            <h3 class="text-[1rem] font-semibold text-[#535353]">${element.name}</h3>
+            <p class="text-[12px] font-normal text-[#535353]">${element.date}</p>
+          </div>
+        </div>
+        <div class="cursor-pointer">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+      </div>
+    `;
+  });
+}
+
 // logout
-const logoutButton = document.getElementById("logout-btn");
 logoutButton.addEventListener("click", () => {
   window.location.href = "index.html";
 });
