@@ -117,6 +117,7 @@ addMoneyButton.addEventListener("click", (event) => {
     const data = {
       name: "Add Money",
       date: new Date().toLocaleString(),
+      icon: "assets/wallet1.png",
     };
     transactionData.push(data);
     transactionHistory();
@@ -170,6 +171,7 @@ withdrawMoneyButton.addEventListener("click", (event) => {
     const data = {
       name: "Cash Out",
       date: new Date().toLocaleString(),
+      icon: "assets/send1.png",
     };
     transactionData.push(data);
     transactionHistory();
@@ -235,6 +237,7 @@ transferMoneyButton.addEventListener("click", (event) => {
     const data = {
       name: "Transfer Money",
       date: new Date().toLocaleString(),
+      icon: "assets/money1.png",
     };
     transactionData.push(data);
     transactionHistory();
@@ -300,6 +303,7 @@ payBillButton.addEventListener("click", (event) => {
     const data = {
       name: "Pay Bill",
       date: new Date().toLocaleString(),
+      icon: "assets/purse1.png",
     };
     transactionData.push(data);
     transactionHistory();
@@ -337,7 +341,7 @@ function transactionHistory() {
       <div class="bg-white flex justify-between items-center gap-[8px] px-[16px] py-[13px] mb-[8px]">
         <div class="flex items-center gap-[8px]">
           <div class="bg-[#f2f2f2] w-[45px] h-[45px] rounded-[50%] flex items-center justify-center">
-            <img src="assets/purse1.png" alt="" />
+            <img src=${element.icon} alt="" />
           </div>
           <div>
             <h3 class="text-[1rem] font-semibold text-[#535353]">${element.name}</h3>
