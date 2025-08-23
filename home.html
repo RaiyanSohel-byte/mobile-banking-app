@@ -77,7 +77,7 @@
           />
           <h2 class="text-center text-[14px] font-normal">Cashout</h2>
         </div>
-        <div
+        <div id="transfer-money"
           class="border py-[20px] cursor-pointer rounded-[12px] border-[#e7e7e7] text-[14px] font-normal hover:bg-[#f2f8fe]  hover:border-[#0874f2] transition-all duration-[0.5s]"
         >
           <img
@@ -87,7 +87,7 @@
           />
           <h2 class="text-center text-[14px] font-normal">Transfer Money</h2>
         </div>
-        <div
+        <div id="get-bonus"
           class="border py-[20px] cursor-pointer rounded-[12px] border-[#e7e7e7] text-[14px] font-normal hover:bg-[#f2f8fe]  hover:border-[#0874f2] transition-all duration-[0.5s]"
         >
           <img
@@ -95,9 +95,9 @@
             src="assets/bonus1.png"
             alt=""
           />
-          <h2 class="text-center text-[14px] font-normal">Get Bonus</h2>
+          <h2  class="text-center text-[14px] font-normal">Get Bonus</h2>
         </div>
-        <div
+        <div id="pay-bill"
           class="border py-[20px] cursor-pointer rounded-[12px] border-[#e7e7e7] text-[14px] font-normal hover:bg-[#f2f8fe]  hover:border-[#0874f2] transition-all duration-[0.5s]"
         >
           <img
@@ -236,6 +236,154 @@
       </form>
 
        </div>
+       
+       <!-- Transfer Money -->
+         <div id="transfer-money-section" class="hidden" >
+        <h1 class="font-semibold text-[18px] mb-[16px]">Transfer Money</h1>
+
+      <form class="bg-white rounded-xl p-[32px] mx-auto" action="">
+     
+        <div class="mb-[16px]">
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >User Account Number</label
+          >
+          <br />
+          <input
+            id="user-number-transfer"
+            type="number"
+            placeholder="Enter 11 digit number"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <div>
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Amount</label
+          >
+          <br />
+          <input
+            id="amount-input-transfer"
+            type="number"
+            placeholder="Enter Amount to Transfer"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <div class="mt-[16px]">
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Pin Number</label
+          >
+          <br />
+          <input
+            id="pin-input-transfer"
+            type="number"
+            placeholder="Enter Your 4 Digit Pin Number"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <button
+          id="transfer-money-btn"
+          class="btn btn-primary bg-[#0874f2] mt-[16px] w-full border-none rounded-[32px] text-[1rem] text-white font-semibold"
+        >
+          Send Now
+        </button>
+      </form>
+
+       </div>
+
+       <!-- Get Bonus -->
+        <div id="get-bonus-section" class="hidden">
+        <h1 class="font-semibold text-[18px] mb-[16px]">Get Bonus</h1>
+
+      <form class="bg-white rounded-xl p-[32px] mx-auto" action="">
+     
+        <div class="mb-[16px]">
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Enter Bonus Coupon</label
+          >
+          <br />
+          <input
+            id="coupon-input"
+            type="number"
+            placeholder="Enter your coupon"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        
+   
+        <button
+          id="get-bonus-btn"
+          class="btn btn-primary bg-[#0874f2] mt-[16px] w-full border-none rounded-[32px] text-[1rem] text-white font-semibold"
+        >
+          Get Bonus
+        </button>
+      </form>
+
+       </div>
+
+       <!-- Pay Bill -->
+         <div id="pay-bill-section" class="hidden">
+         <h1 class="font-semibold text-[18px] mb-[16px]">Pay Bill</h1>
+
+      <form class="bg-white rounded-xl p-[32px] mx-auto" action="">
+        <label for="" class="mb-[12px] text-[1rem] font-normal">Select An Institute</label>
+        <select
+         id="institute" class="select input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px] mb-[16px] cursor-pointer"
+        >
+          
+           
+          <option disabled selected >Select Institute</option>
+          <option class="cursor-pointer">Link3 Technologies Ltd.</option>
+          <option class="cursor-pointer"> BDCOM Online Ltd.</option>
+          <option class="cursor-pointer">United International University</option>
+          <option class="cursor-pointer">North South University</option>
+          <option class="cursor-pointer">Programming Hero</option>
+          <option class="cursor-pointer">Dhaka Power Distribution
+Company Limited (DPDC)
+</option>
+        </select>
+        <div class="mb-[16px]">
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Biller Account Number</label
+          >
+          <br />
+          <input
+            id="biller-account-number-input"
+            type="number"
+            placeholder="Enter 11 digit account number"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <div>
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Amount to Pay</label
+          >
+          <br />
+          <input
+            id="bill-amount-input"
+            type="number"
+            placeholder="Add Amount to Pay"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <div class="mt-[16px]">
+          <label class="mb-[12px] text-[1rem] font-normal" for=""
+            >Pin Number</label
+          >
+          <br />
+          <input
+            id="bill-pin-input"
+            type="number"
+            placeholder="Enter Your 4 Digit Pin Number"
+            class="input bg-[#f4f5f7] mt-[16px] w-full rounded-[32px] border-none placeholder:pl-[10px] placeholder:py-[16px]"
+          />
+        </div>
+        <button
+          id="pay-bill-btn"
+          class="btn btn-primary bg-[#0874f2] mt-[16px] w-full border-none rounded-[32px] text-[1rem] text-white font-semibold"
+        >
+          Pay Now
+        </button>
+      </form>
+      </div>
     </div>
     <div
       id="popup"
