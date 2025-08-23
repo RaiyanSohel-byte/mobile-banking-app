@@ -155,3 +155,9 @@ withdrawMoneyButton.addEventListener("click", (event) => {
     }, 2000);
   }
 });
+
+// logout
+const logoutButton = document.getElementById("logout-btn");
+logoutButton.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
