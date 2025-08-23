@@ -8,10 +8,15 @@ const getBonus = document.getElementById("get-bonus");
 const getBonusSection = document.getElementById("get-bonus-section");
 const payBill = document.getElementById("pay-bill");
 const payBillSection = document.getElementById("pay-bill-section");
-
+const transaction = document.getElementById("transaction");
+const transactionSection = document.getElementById("transaction-section");
 //get value function
 function getValue(id) {
   return parseInt(document.getElementById(id).value);
+}
+// get inner text function
+function getInnerText(id) {
+  return document.getElementById(id).innerText;
 }
 
 //toggle
@@ -27,10 +32,16 @@ function toggleSection(activeButton, activeSection) {
   activeSection.classList.remove("hidden");
 
   // reset all buttons
-  [addMoney, cashout, transferMoney, getBonus, payBill].forEach((btn) => {
-    btn.classList.remove("bg-[#f2f8fe]", "text-[#0874F2]", "border-[#0874f2]");
-    btn.classList.add("border", "border-[#e7e7e7]");
-  });
+  [addMoney, cashout, transferMoney, getBonus, payBill, transaction].forEach(
+    (btn) => {
+      btn.classList.remove(
+        "bg-[#f2f8fe]",
+        "text-[#0874F2]",
+        "border-[#0874f2]"
+      );
+      btn.classList.add("border", "border-[#e7e7e7]");
+    }
+  );
 
   // set active button styles
   activeButton.classList.remove("border-[#e7e7e7]");
@@ -53,13 +64,16 @@ getBonus.addEventListener("click", () =>
   toggleSection(getBonus, getBonusSection)
 );
 payBill.addEventListener("click", () => toggleSection(payBill, payBillSection));
+transaction.addEventListener("click", () =>
+  toggleSection(transaction, transactionSection)
+);
 
 // add money
 const addMoneyButton = document.getElementById("add-money-btn");
 const pin = "1234";
 addMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
-  let balance = parseInt(document.getElementById("balance").innerText);
+  let balance = parseInt(getInnerText("balance"));
   const amountInput = getValue("amount-input");
   const bankInput = document.getElementById("account-number-input").value;
   const pinInput = document.getElementById("pin-input").value;
@@ -104,7 +118,7 @@ const withdrawMoneyButton = document.getElementById("withdraw-money-btn");
 
 withdrawMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
-  let balance = parseInt(document.getElementById("balance").innerText);
+  let balance = parseInt(getInnerText("balance"));
   const amntInput = getValue("amount-input-cashout");
   const agentInput = document.getElementById("agent-number-input").value;
   const pinInput = document.getElementById("pin-input-cashout").value;
@@ -163,7 +177,7 @@ const transferMoneyButton = document.getElementById("transfer-money-btn");
 
 transferMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
-  let balance = parseInt(document.getElementById("balance").innerText);
+  let balance = parseInt(getInnerText("balance"));
   const amntInput = getValue("amount-input-transfer");
   const userNumberInput = document.getElementById("user-number-transfer").value;
   const pinInput = document.getElementById("pin-input-transfer").value;
@@ -222,7 +236,7 @@ const payBillButton = document.getElementById("pay-bill-btn");
 
 payBillButton.addEventListener("click", (event) => {
   event.preventDefault();
-  let balance = parseInt(document.getElementById("balance").innerText);
+  let balance = getInnerText("balance");
   const amountInput = getValue("bill-amount-input");
   const billerInput = document.getElementById(
     "biller-account-number-input"
