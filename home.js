@@ -8,6 +8,12 @@ const getBonus = document.getElementById("get-bonus");
 const getBonusSection = document.getElementById("get-bonus-section");
 const payBill = document.getElementById("pay-bill");
 const payBillSection = document.getElementById("pay-bill-section");
+
+//get value function
+function getValue(id) {
+  return parseInt(document.getElementById(id).value);
+}
+
 //toggle
 function toggleSection(activeButton, activeSection) {
   // hide all sections
@@ -54,7 +60,7 @@ const pin = "1234";
 addMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(document.getElementById("balance").innerText);
-  const amountInput = parseInt(document.getElementById("amount-input").value);
+  const amountInput = getValue("amount-input");
   const bankInput = document.getElementById("account-number-input").value;
   const pinInput = document.getElementById("pin-input").value;
   const bank = document.getElementById("bank").value;
@@ -77,7 +83,7 @@ addMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else {
     document.getElementById(
       "popup"
@@ -89,7 +95,7 @@ addMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   }
 });
 
@@ -99,9 +105,7 @@ const withdrawMoneyButton = document.getElementById("withdraw-money-btn");
 withdrawMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(document.getElementById("balance").innerText);
-  const amntInput = parseInt(
-    document.getElementById("amount-input-cashout").value
-  );
+  const amntInput = getValue("amount-input-cashout");
   const agentInput = document.getElementById("agent-number-input").value;
   const pinInput = document.getElementById("pin-input-cashout").value;
   // const bank = document.getElementById("bank").value;
@@ -126,7 +130,7 @@ withdrawMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else if (amntInput > balance) {
     document.getElementById(
       "popup"
@@ -138,7 +142,7 @@ withdrawMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else {
     document.getElementById(
       "popup"
@@ -150,7 +154,7 @@ withdrawMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   }
 });
 
@@ -160,9 +164,7 @@ const transferMoneyButton = document.getElementById("transfer-money-btn");
 transferMoneyButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(document.getElementById("balance").innerText);
-  const amntInput = parseInt(
-    document.getElementById("amount-input-transfer").value
-  );
+  const amntInput = getValue("amount-input-transfer");
   const userNumberInput = document.getElementById("user-number-transfer").value;
   const pinInput = document.getElementById("pin-input-transfer").value;
   // const bank = document.getElementById("bank").value;
@@ -187,7 +189,7 @@ transferMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else if (amntInput > balance) {
     document.getElementById(
       "popup"
@@ -199,7 +201,7 @@ transferMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else {
     document.getElementById(
       "popup"
@@ -211,7 +213,7 @@ transferMoneyButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   }
 });
 
@@ -221,9 +223,7 @@ const payBillButton = document.getElementById("pay-bill-btn");
 payBillButton.addEventListener("click", (event) => {
   event.preventDefault();
   let balance = parseInt(document.getElementById("balance").innerText);
-  const amountInput = parseInt(
-    document.getElementById("bill-amount-input").value
-  );
+  const amountInput = getValue("bill-amount-input");
   const billerInput = document.getElementById(
     "biller-account-number-input"
   ).value;
@@ -248,7 +248,7 @@ payBillButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   } else {
     document.getElementById(
       "popup"
@@ -260,7 +260,7 @@ payBillButton.addEventListener("click", (event) => {
 </div>`;
     setTimeout(() => {
       document.getElementById("popup").innerHTML = ``;
-    }, 2000);
+    }, 1000);
   }
 });
 
