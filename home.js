@@ -94,3 +94,52 @@ addMoneyButton.addEventListener("click", (event) => {
     }, 2000);
   }
 });
+
+// cashout
+const withdrawMoneyButton = document.getElementById("withdraw-money-btn");
+
+withdrawMoneyButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  let balance = parseInt(document.getElementById("balance").innerText);
+  const amntInput = parseInt(
+    document.getElementById("amount-input-cashout").value
+  );
+  const agentInput = document.getElementById("agent-number-input").value;
+  const pinInput = document.getElementById("pin-input-cashout").value;
+  // const bank = document.getElementById("bank").value;
+  // console.log(amntInput);
+  // console.log(agentInput.length);
+  // console.log(pinInput);
+  if (
+    amntInput <= balance &&
+    !isNaN(amntInput) &&
+    agentInput.length === 11 &&
+    // bank !== "Select Bank" &&
+    pinInput === pin
+  ) {
+    document.getElementById("balance").innerText = `${balance - amntInput}`;
+    document.getElementById(
+      "popup"
+    ).innerHTML = `<div role="alert" class="alert alert-success">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>$${amntInput} Withdrawn from your account!</span>
+</div>`;
+    setTimeout(() => {
+      document.getElementById("popup").innerHTML = ``;
+    }, 2000);
+  } else {
+    document.getElementById(
+      "popup"
+    ).innerHTML = `<div role="alert" class="alert alert-error">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Invalid Input!!</span>
+</div>`;
+    setTimeout(() => {
+      document.getElementById("popup").innerHTML = ``;
+    }, 2000);
+  }
+});
