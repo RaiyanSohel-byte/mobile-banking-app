@@ -97,6 +97,7 @@ addMoneyButton.addEventListener("click", (event) => {
   console.log(bank);
   if (
     !isNaN(amountInput) &&
+    amountInput > 0 &&
     bankInput.length === 11 &&
     pinInput.length === 4 &&
     bank !== "Select Bank" &&
@@ -151,6 +152,7 @@ withdrawMoneyButton.addEventListener("click", (event) => {
   // console.log(pinInput);
   if (
     amntInput <= balance &&
+    amntInput > 0 &&
     !isNaN(amntInput) &&
     agentInput.length === 11 &&
     // bank !== "Select Bank" &&
@@ -217,6 +219,7 @@ transferMoneyButton.addEventListener("click", (event) => {
   // console.log(pinInput);
   if (
     amntInput <= balance &&
+    amntInput > 0 &&
     !isNaN(amntInput) &&
     userNumberInput.length === 11 &&
     // bank !== "Select Bank" &&
@@ -283,6 +286,7 @@ payBillButton.addEventListener("click", (event) => {
   console.log(bank);
   if (
     !isNaN(amountInput) &&
+    amountInput > 0 &&
     billerInput.length === 11 &&
     pinInput.length === 4 &&
     bank !== "Select Institute" &&
@@ -351,7 +355,7 @@ function transactionHistory() {
         <div class="cursor-pointer">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </div>
-      </div>
+      </div> 
     `;
   });
 }
